@@ -1,16 +1,14 @@
 import express from "express";
 
-import NotesController from "../Controllers/NotesController";
-import { NoteSchema, validateNote } from "../Validations/NoteValidation";
+import NotesService from "../services/NotesService";
 
 const NotesRouter = express.Router();
 
-NotesRouter.get("/", NotesController.getAll);
-NotesRouter.post("/",validateNote(NoteSchema), NotesController.createOne);
-NotesRouter.get("/stats",NotesController.getStats);
-NotesRouter.get("/:id", NotesController.getOne);
-NotesRouter.delete("/:id", NotesController.deleteOne);
-NotesRouter.patch("/:id", NotesController.updateOne);
-
+NotesRouter.get("/", NotesService.getAll);
+NotesRouter.post("/", NotesService.createOne);
+NotesRouter.get("/stats", NotesService.getStats);
+NotesRouter.get("/:id", NotesService.getOne);
+NotesRouter.delete("/:id", NotesService.deleteOne);
+NotesRouter.patch("/:id", NotesService.updateOne);
 
 export default NotesRouter;
