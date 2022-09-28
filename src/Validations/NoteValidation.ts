@@ -1,6 +1,6 @@
 // import * as yup from "yup";
 import * as yup from "yup";
-import { Request, Response, NextFunction } from "express";
+
 
 export const NewNoteSchema = yup.object({
   title: yup.string().required("title is required"),
@@ -10,7 +10,6 @@ export const NewNoteSchema = yup.object({
   isArchive: yup.boolean().required("isArchive is required"),
 });
 
-
 export const PatchNoteSchema = yup.object({
   title: yup.string(),
   date: yup.string(),
@@ -18,4 +17,3 @@ export const PatchNoteSchema = yup.object({
   content: yup.string(),
   isArchive: yup.boolean(),
 });
-
